@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitGenie - Personalized Fitness Plan</title>
+    
+    <!-- Inline CSS for styling -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            font-size: 28px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .recommendation p {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .back-button:active {
+            background-color: #388e3c;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #e0e0e0;
+            text-align: left;
+        }
+
+        input[type="number"],
+        select {
+            padding: 12px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #e0e0e0;
+            background-color: #333;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            background-color: #388e3c;
+        }
+
+        input[type="number"], select, button {
+            width: 100%;
+        }
+
+        select {
+            padding-right: 30px; /* Ensures the dropdown arrow is not cut off */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .back-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to FitGenie</h1>
+        <p>Get a customized fitness plan just for you!</p>
+        <form action="/recommend" method="POST">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" required step="0.1">
+
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" name="height" required step="0.1">
+
+            <label for="goal">Fitness Goal:</label>
+            <select id="goal" name="goal" required>
+                <option value="weight loss">Weight Loss</option>
+                <option value="weight gain">Weight Gain</option>
+                <option value="muscle building">Muscle Building</option>
+                <option value="improve stamina">Improve Stamina</option>
+                <option value="general fitness">General Fitness</option>
+            </select>
+
+            <label for="experience_level">Experience Level:</label>
+            <select id="experience_level" name="experience_level" required>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+
+            <button type="submit">Generate Fitness Plan</button>
+        </form>
+    </div>
+</body>
+</html>

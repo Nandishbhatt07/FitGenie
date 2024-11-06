@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Fitness Plan - FitGenie</title>
+
+    <!-- Inline CSS for styling -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #1e1e1e; /* Darker container background */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4fc3f7; /* Light blue color for headings */
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #4fc3f7;
+            font-size: 28px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .recommendation p {
+            font-size: 18px;
+            color: #cfcfcf; /* Light gray for readability */
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #4fc3f7;
+            color: #121212;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #0288d1;
+        }
+
+        .back-button:active {
+            background-color: #01579b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .back-button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Personalized Fitness Plan</h1>
+        <div class="recommendation">
+            <h2>Fitness Recommendation:</h2>
+            <p><strong>Your Weight Category:</strong> {{ weight_category }}</p>
+            <p><strong>Weight Suggestion:</strong> {{ weight_suggestion }}</p>
+            <h2>Your AI-Generated Workout Plan:</h2>
+            <p>{{ fitness_plan }}</p>
+        </div>
+        <a href="/" class="back-button">Go Back</a>
+    </div>
+</body>
+</html>
