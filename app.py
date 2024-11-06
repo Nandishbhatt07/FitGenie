@@ -5,13 +5,13 @@ import time
 
 app = Flask(__name__)
 
-# Replace with your Cohere API Key
+
 API_KEY = 'a03sn6saSYbd5wiZaCk4dnTyDAoRUXSLhGM4K5F3'
 API_URL= 'https://api.cohere.ai/v1/generate'
 
 def get_weight_category(weight, height_cm):
     """Calculate BMI and determine the weight category and recommendation."""
-    height_m = height_cm / 100  # Convert height from cm to meters
+    height_m = height_cm / 100  
     bmi = weight / (height_m ** 2)  # BMI formula
     if bmi < 18.5:
         return "underweight", "Focus on a balanced diet with a caloric surplus and strength training to promote healthy weight gain."
@@ -47,7 +47,7 @@ def get_ai_workout_plan(age, weight, height, fitness_goal, experience_level):
                 }
             )
 
-            response.raise_for_status()  # Raises an error for HTTP errors
+            response.raise_for_status()  
             response_data = response.json()
 
             if "generations" in response_data and len(response_data["generations"]) > 0:
@@ -71,14 +71,12 @@ def home():
 def recommend():
     age = int(request.form['age'])
     weight = float(request.form['weight'])
-    height_cm = float(request.form['height'])  # Height in centimeters
+    height_cm = float(request.form['height'])  
     goal = request.form['goal']
-    experience_level = request.form.get('experience_level', 'beginner')  # Additional input for experience level
+    experience_level = request.form.get('experience_level', 'beginner')  
 
-    # Calculate weight category and provide a suggestion based on BMI
     weight_category, weight_suggestion = get_weight_category(weight, height_cm)
 
-    # Generate AI or default fitness plan based on user's goal
     ai_fitness_plan = get_ai_workout_plan(age, weight, height_cm, goal, experience_level)
 
     return render_template('result.html', fitness_plan=ai_fitness_plan, weight_category=weight_category, weight_suggestion=weight_suggestion)
