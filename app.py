@@ -6,7 +6,7 @@ import time
 app = Flask(__name__)
 
 
-API_KEY = 'a03sn6saSYbd5wiZaCk4dnTyDAoRUXSLhGM4K5F3'
+API_KEY = '..'
 API_URL= 'https://api.cohere.ai/v1/generate'
 
 def get_weight_category(weight, height_cm):
@@ -83,3 +83,4 @@ def recommend():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
